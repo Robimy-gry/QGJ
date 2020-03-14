@@ -7,9 +7,9 @@ func _ready():
 	for i in range (0, 20):
 		var player = Player.instance()
 		rand.randomize()
-		var x = rand.randf_range(0, 200)
+		var x = rand.randf_range(10, 200)
 		rand.randomize()
-		var y = rand.randf_range(0, 300)
+		var y = rand.randf_range(100, 300)
 		player.position.y = y
 		player.position.x = x
 		call_deferred("add_child", player)

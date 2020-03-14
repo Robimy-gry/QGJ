@@ -7,6 +7,9 @@ const MAX_SPEED = 200
 const FRICTION = 0.1
 var motion = Vector2()
 
+func _ready():
+	_preload_textures()
+
 func _physics_process(delta):
 	update_movement(delta)
 	#var axis = get_input_axis()
@@ -45,6 +48,13 @@ func update_movement(delta):
 		motion.x = clamp((motion.x + SPEED), 0, MAX_SPEED)
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
+
+func _preload_textures():
+  var my_textures = [ preload('res://Sprites/p1.png'), 
+	preload('res://Sprites/p2.png'), preload('res://Sprites/p3.png'), 
+	preload('res://Sprites/p4.png'), preload('res://Sprites/p5.png') ]
+  var rand_text_index = int( rand_range(0, my_textures.size() ) )
+  $Sprite.texture = my_textures[rand_text_index]
 
 	
 
