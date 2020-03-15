@@ -21,7 +21,7 @@ tracks/0/keys = {
 }
 
 [node name="Spawner" type="Position2D"]
-position = Vector2( 1022.32, 365.434 )
+position = Vector2( 1022.32, 0 )
 script = ExtResource( 1 )
 spawnScene = ExtResource( 2 )
 timerPath = NodePath("Timer")
@@ -32,6 +32,7 @@ maxWaitTime = 7.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spawnAnim"
 method_call_mode = 1
 anims/spawnAnim = SubResource( 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -10,6 +10,7 @@ var screensize
 var player_right = ["p1_right", "p2_right", "p3_right", "p4_right", "p5_right"]
 var player_down = ["p1_down", "p2_down", "p3_down", "p4_down", "p5_down"]
 var player_number
+var is_powerup_enabled = false
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -18,6 +19,9 @@ func _ready():
 
 func _physics_process(delta):
 	update_movement(delta)
+	#_powerup()
+	position.x = clamp(position.x, 0, screensize.x/2)
+	position.y = clamp(position.y, 0, screensize.y)	
 	#var axis = get_input_axis()
 	#if axis == Vector2.ZERO:
 	#	apply_friction(ACCELERATION * delta)
@@ -25,9 +29,8 @@ func _physics_process(delta):
 	#	apply_movement(axis * ACCELERATION * delta)
 	motion = move_and_slide(motion)
 	
-func _process(delta):
-		position.x = clamp(position.x, 0, screensize.x/2)
-		position.y = clamp(position.y, 0, screensize.y)	
+#func _process(delta):
+		
 #func get_input_axis():
 #	var axis = Vector2.ZERO
 #	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -75,6 +78,15 @@ func _preload_textures():
 	preload('res://Sprites/p4.png'), preload('res://Sprites/p5.png') ]
   var rand_text_index = int( rand_range(0, my_textures.size() ) )
   $Sprite.texture = my_textures[rand_text_index]
+
+func _powerup():
+	if is_powerup_enabled == true and (Input.is_action_pressed("ui_select")):
+		if motion.y >= 150:
+			motion.y += 50
+		else:
+			motion.y -= 50
+		#is_powerup_enabled = false
+		
 	
 func _on_KinematicBody2D_body_shape_entered(body_id, body, body_shape, area_shape):
 	hide()
