@@ -12,7 +12,7 @@
 [ext_resource path="res://Sprites/p3_down.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/p1_down.png" type="Texture" id=11]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
@@ -24,9 +24,14 @@ animations = [ {
 "name": "p2_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "p3_right",
+"name": "p1_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "p4_right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -34,14 +39,14 @@ animations = [ {
 "name": "p2_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "p1_down",
+"name": "p5_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "p1_right",
+"name": "p3_right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -54,18 +59,13 @@ animations = [ {
 "name": "p3_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "p4_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "p5_down",
+"name": "p1_down",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 6.5838
 height = 19.2614
 
@@ -73,9 +73,9 @@ height = 19.2614
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "p1_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.37167, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )

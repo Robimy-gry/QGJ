@@ -15,8 +15,6 @@ func _ready():
 	screensize = get_viewport_rect().size
 	player_number = (randi() % player_right.size())
 	$AnimatedSprite.animation = player_right[player_number]
-	_preload_textures()
-	
 
 func _physics_process(delta):
 	update_movement(delta)
