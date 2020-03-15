@@ -6,6 +6,15 @@ const SPEED = 10
 const MAX_SPEED = 200
 const FRICTION = 0.1
 var motion = Vector2()
+var screensize
+var player_right = ["p1_right", "p2_right", "p3_right", "p4_right", "p5_right"]
+var player_down = ["p1_down", "p2_down", "p3_down", "p4_down", "p5_down"]
+var player_number
+
+func _ready():
+	screensize = get_viewport_rect().size
+	player_number = (randi() % player_right.size())
+	$AnimatedSprite.animation = player_right[player_number]
 
 func _physics_process(delta):
 	update_movement(delta)
@@ -45,7 +54,21 @@ func update_movement(delta):
 		motion.x = clamp((motion.x + SPEED), 0, MAX_SPEED)
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
-
+		
+	if motion.x != 0:
+		$CollisionShape2D.rotation_degrees = 0
+		$AnimatedSprite.animation = player_right[player_number]
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.flip_h = motion.x < 0
+		
+	if motion.y !=0 and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):
+		$CollisionShape2D.rotation_degrees = 90
+		$AnimatedSprite.animation = player_down[player_number]
+		$AnimatedSprite.flip_v = motion.y < 0
+		
+func _process(delta):
+		position.x = clamp(position.x, 0, screensize.x/2)
+		position.y = clamp(position.y, 0, screensize.y)
 	
-
-	
+func _on_KinematicBody2D_body_shape_entered(body_id, body, body_shape, area_shape):
+	hide()
