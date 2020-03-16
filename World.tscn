@@ -6,7 +6,7 @@
 [ext_resource path="res://World.gd" type="Script" id=4]
 [ext_resource path="res://Score.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Powerup.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/background.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/road.png" type="Texture" id=7]
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=8]
 
 [node name="World" type="Node2D"]
@@ -42,6 +42,6 @@ script = ExtResource( 8 )
 motion_mirroring = Vector2( 1000, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 1.1, 0.6 )
+scale = Vector2( 1, 0.860524 )
 texture = ExtResource( 7 )
 centered = false
