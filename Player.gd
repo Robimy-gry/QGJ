@@ -10,7 +10,7 @@ var screensize
 var player_right = ["p1_right", "p2_right", "p3_right", "p4_right", "p5_right"]
 var player_down = ["p1_down", "p2_down", "p3_down", "p4_down", "p5_down"]
 var player_number
-var is_powerup_enabled = true
+var is_powerup_enabled = false
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -81,13 +81,20 @@ func _preload_textures():
   var rand_text_index = int( rand_range(0, my_textures.size() ) )
   $Sprite.texture = my_textures[rand_text_index]
 
+func _powerup_ready():
+	$AudioStreamPlayer.play()
+	is_powerup_enabled = true
+	get_tree().call_group("World", "star_visible")
+
 func _powerup():
 	if is_powerup_enabled == true and (Input.is_action_pressed("ui_select")):
 		if position.y > screensize.y / 2:
-			motion.y += 50
+			motion.y += 500
 		else:
-			motion.y -= 50
-		#is_powerup_enabled = false
+			motion.y -= 500
+		is_powerup_enabled = false
+		get_tree().call_group("GUI", "star_invisible")
+		
 		
 func _die():
 	queue_free()

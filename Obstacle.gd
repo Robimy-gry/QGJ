@@ -25,5 +25,6 @@ func _preload_textures():
 
 func _on_Obstacle_body_entered(body):
 	if body.is_in_group("Player"):
+		$AudioStreamPlayer.play()
 		body._die()
 		get_tree().call_group("World", "people_update")

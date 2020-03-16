@@ -36,3 +36,7 @@ func people_update():
 	people_count -= 1
 	update_GUI()
 
+func star_visible():
+	get_tree().call_group("GUI", "star_visible")
+	
+

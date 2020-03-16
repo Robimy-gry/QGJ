@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/p1.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/p5_down.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/p3_down.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/p1_down.png" type="Texture" id=11]
+[ext_resource path="res://SFX/powerup.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -79,3 +80,6 @@ animation = "p1_right"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.37167, 0 )
 shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
