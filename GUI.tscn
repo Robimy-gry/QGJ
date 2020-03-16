@@ -5,13 +5,13 @@
 [ext_resource path="res://GUI.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/p1.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -53,7 +53,7 @@ __meta__ = {
 [node name="ScoreCount" type="Label" parent="Control/TextureRect/HBoxContainer"]
 margin_right = 280.0
 margin_bottom = 33.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/TextureRect/HBoxContainer"]
@@ -70,5 +70,5 @@ texture = ExtResource( 4 )
 margin_left = 36.0
 margin_right = 54.0
 margin_bottom = 33.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "0"

@@ -31,4 +31,8 @@ func score_update():
 	
 func score_bonus():
 	_score += people_count
+	
+func people_update():
+	people_count -= 1
+	update_GUI()
 

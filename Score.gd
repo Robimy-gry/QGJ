@@ -12,3 +12,4 @@ func _on_ScoreTimer_timeout():
 func _on_BonusTimer_timeout():
 	get_tree().call_group("World", "score_bonus")
 	$BonusTimer.start()
+	
