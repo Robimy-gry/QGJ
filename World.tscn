@@ -7,7 +7,6 @@
 [ext_resource path="res://Score.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
-scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 4 )
 Player = ExtResource( 1 )
 

@@ -10,7 +10,7 @@ var screensize
 var player_right = ["p1_right", "p2_right", "p3_right", "p4_right", "p5_right"]
 var player_down = ["p1_down", "p2_down", "p3_down", "p4_down", "p5_down"]
 var player_number
-var is_powerup_enabled = false
+var is_powerup_enabled = true
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -19,7 +19,7 @@ func _ready():
 
 func _physics_process(delta):
 	update_movement(delta)
-	#_powerup()
+	_powerup()
 	position.x = clamp(position.x, 0, screensize.x/2)
 	position.y = clamp(position.y, 0, screensize.y)	
 	#var axis = get_input_axis()
@@ -30,6 +30,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 	
 #func _process(delta):
+
 		
 #func get_input_axis():
 #	var axis = Vector2.ZERO
@@ -81,7 +82,7 @@ func _preload_textures():
 
 func _powerup():
 	if is_powerup_enabled == true and (Input.is_action_pressed("ui_select")):
-		if motion.y >= 150:
+		if position.y > screensize.y / 2:
 			motion.y += 50
 		else:
 			motion.y -= 50

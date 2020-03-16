@@ -28,4 +28,7 @@ func update_GUI():
 func score_update():
 	_score += 1 + round(people_count / max_people)
 	update_GUI()
+	
+func score_bonus():
+	_score += people_count
 

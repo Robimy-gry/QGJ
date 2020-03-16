@@ -7,3 +7,8 @@ func _ready():
 func _on_ScoreTimer_timeout():
 	get_tree().call_group("World", "score_update")
 	$ScoreTimer.start()
+
+
+func _on_BonusTimer_timeout():
+	get_tree().call_group("World", "score_bonus")
+	$BonusTimer.start()
