@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = rand_range(200, 400)
+var speed = rand_range(200, 400) + (global.level * 100)
 var motion =  Vector2()
 var dir = -1
 

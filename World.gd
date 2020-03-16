@@ -2,10 +2,6 @@ extends Node2D
 
 export (PackedScene) var Player
 
-var max_people = 20
-var people_count = 0
-var _score = 0
-var _level = 0
 
 func _ready():
 	add_to_group("World")
@@ -20,27 +16,27 @@ func _ready():
 		player.position.y = y
 		player.position.x = x
 		call_deferred("add_child", player)
-		people_count += 1
+		global.people_count += 1
 		update_GUI()
 		
 func update_GUI():
-	get_tree().call_group("GUI", "update_GUI", people_count, _score)
+	get_tree().call_group("GUI", "update_GUI", global.people_count, global._score)
 	
 func score_update():
-	_score += (people_count + (10*_level))
+	global._score += (global.people_count + (10 * global.level))
 	update_GUI()
 	
 func score_bonus():
-	_score += people_count
+	global._score += global.people_count
 	
 func level_change():
-	_level += 1
+	global.level += 1
 	update_GUI()
 	
 func people_update():
-	people_count -= 1
+	global.people_count -= 1
 	update_GUI()
-	if people_count < 1:
+	if global.people_count < 1:
 		end_game()
 
 func star_visible():
