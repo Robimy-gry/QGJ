@@ -21,6 +21,8 @@ maxWaitTime = 15.0
 
 [node name="Spawner3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1022.2, 290 )
+minWaitTime = 15.0
+maxWaitTime = 30.0
 
 [node name="PowerupSpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1022.2, 290 )

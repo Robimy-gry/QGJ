@@ -5,6 +5,7 @@ export (PackedScene) var Player
 var max_people = 20
 var people_count = 0
 var _score = 0
+var level = 0
 
 func _ready():
 	add_to_group("World")
@@ -26,7 +27,7 @@ func update_GUI():
 	get_tree().call_group("GUI", "update_GUI", people_count, _score)
 	
 func score_update():
-	_score += 1 + round(people_count / max_people)
+	_score += people_count
 	update_GUI()
 	
 func score_bonus():
