@@ -36,8 +36,13 @@ func score_bonus():
 func people_update():
 	people_count -= 1
 	update_GUI()
+	if people_count < 1:
+		end_game()
 
 func star_visible():
 	get_tree().call_group("GUI", "star_visible")
+
+func end_game():
+	get_tree().change_scene("res://GameOver.tscn")
 	
 

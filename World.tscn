@@ -28,6 +28,8 @@ maxWaitTime = 30.0
 position = Vector2( 1022.2, 290 )
 spawnScene = ExtResource( 6 )
 timerPath = NodePath("../PowerupSpawner/Timer")
+minWaitTime = 15.0
+maxWaitTime = 30.0
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 
