@@ -89,9 +89,9 @@ func _powerup_ready():
 func _powerup():
 	if is_powerup_enabled == true and (Input.is_action_pressed("ui_select")):
 		if position.y > screensize.y / 2:
-			motion.y += 500
+			motion.y += 600
 		else:
-			motion.y -= 500
+			motion.y -= 600
 		is_powerup_enabled = false
 		get_tree().call_group("GUI", "star_invisible")
 		
