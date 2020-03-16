@@ -13,3 +13,8 @@ func _on_BonusTimer_timeout():
 	get_tree().call_group("World", "score_bonus")
 	$BonusTimer.start()
 	
+
+
+func _on_LevelTimer_timeout():
+	get_tree().call_group("World", "level_change")
+	$LevelTimer.start()
