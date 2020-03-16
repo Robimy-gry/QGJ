@@ -21,3 +21,8 @@ func _preload_textures():
 	preload("res://Sprites/Obstacles/toilet_bowl.png") ]
   var rand_text_index = int( rand_range(0, my_textures.size() ) )
   $Sprite.texture = my_textures[rand_text_index]
+
+
+func _on_Obstacle_body_entered(body):
+	if body.is_in_group("Player"):
+		body._die()

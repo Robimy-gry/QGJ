@@ -16,6 +16,7 @@ func _ready():
 	screensize = get_viewport_rect().size
 	player_number = (randi() % player_right.size())
 	$AnimatedSprite.animation = player_right[player_number]
+	add_to_group("Player")
 
 func _physics_process(delta):
 	update_movement(delta)
@@ -88,6 +89,6 @@ func _powerup():
 			motion.y -= 50
 		#is_powerup_enabled = false
 		
+func _die():
+	queue_free()
 	
-func _on_KinematicBody2D_body_shape_entered(body_id, body, body_shape, area_shape):
-	hide()
