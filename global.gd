@@ -6,4 +6,4 @@ var people_count = 0
 var _score = 0
 
 func _ready():
-	pass
+    pass
